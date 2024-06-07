@@ -1,0 +1,50 @@
+import { Button, FormGroup, Stack } from "@mui/material";
+import React, { useState } from "react";
+
+/* Create array
+    Add new object to array
+        Object should have the following: 
+            Points needed
+            Gift to redeem 
+*/
+
+export const RedemptionOption = () => {
+  const [redemptionOptions, setRedemptionOptions] = useState([]);
+
+  const [pointsNeeded, setPointsNeeded] = useState(10000);
+  const [reward, setReward] = useState("");
+
+  const increaseRequirePoints = () => {
+    setPointsNeeded((pointsNeeded += 100));
+  };
+
+  const decreaseRequiredPoints = () => {
+    setPointsNeeded((pointsNeeded -= 100));
+  };
+
+  const handleRewardChange = (e) => {
+    setReward(e.target.value);
+  };
+
+  const redemptionOptionInstance = {
+    points: pointsNeeded,
+    reward: reward,
+  };
+
+  setRedemptionOptions((prev) => [...prev, redemptionOptionInstance]);
+
+  return (
+    <div>
+      <h4>{pointsNeeded}</h4>
+
+      <Stack>
+        <Button variant="outlined" onClick={increaseRequirePoints}>
+          +
+        </Button>
+        <Button variant="outlined" onClick={decreaseRequiredPoints}>
+          -
+        </Button>
+      </Stack>
+    </div>
+  );
+};
