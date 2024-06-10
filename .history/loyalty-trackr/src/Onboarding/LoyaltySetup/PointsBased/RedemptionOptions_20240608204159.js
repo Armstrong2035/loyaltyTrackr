@@ -2,15 +2,22 @@ import { Button, FormGroup, Stack, TextField } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { onBoardingStore } from "../../Store/Store";
 
-export const RedemptionOption = () => {
-  let [pointsNeeded, setPointsNeeded] = useState(10000);
-  const [reward, setReward] = useState("");
+/* Create array
+    Add new object to array
+        Object should have the following: 
+            Points needed
+            Gift to redeem 
+*/
 
+export const RedemptionOption = () => {
   const setRedemptionOptions = onBoardingStore(
-    (state) => state.setRedemptionOptions
+    (state) => state.redemptionOptions
   );
 
   const redemptionOptions = onBoardingStore((state) => state.redemptionOptions);
+
+  let [pointsNeeded, setPointsNeeded] = useState(10000);
+  const [reward, setReward] = useState("");
 
   const increaseRequirePoints = () => {
     setPointsNeeded(() => (pointsNeeded += 100));
@@ -30,12 +37,10 @@ export const RedemptionOption = () => {
       reward: reward,
     };
 
-    setRedemptionOptions(redemptionOptionInstance);
+    setRedemptionOptions((prev) => [...prev, redemptionOptionInstance]);
   };
 
-  // useEffect(() => {
-  //   console.log(redemptionOptions);
-  // }, [redemptionOptions]);
+  useEffect(() => console.log(redemptionOptions));
 
   return (
     <div>

@@ -4,13 +4,10 @@ import {
   Select,
   Typography,
   MenuItem,
-  Button,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { currencies } from "../../../Utility/currencies";
 import { onBoardingStore } from "../../Store/Store";
-
-const currencyArray = currencies;
 
 export const PointsPerPurchase = () => {
   const [currency, setCurrency] = useState("");
@@ -21,6 +18,8 @@ export const PointsPerPurchase = () => {
   );
 
   const pointsPerPurchase = onBoardingStore((state) => state.pointsPerPurchase);
+
+  const currencyArray = currencies;
 
   const sendPointsPerPurchaseToStore = () => {
     const pointsPerPurchase = {
@@ -34,9 +33,9 @@ export const PointsPerPurchase = () => {
     setPointsPerPurchase(pointsPerPurchase);
   };
 
-  // useEffect(() => {
-  //   console.log(pointsPerPurchase);
-  // }, [pointsPerPurchase]);
+  useEffect(() => {
+    console.log(pointsPerPurchase);
+  }, [pointsPerPurchase]);
 
   return (
     <>
@@ -53,10 +52,7 @@ export const PointsPerPurchase = () => {
             onChange={(e) => setCurrency(e.target.value)}
           >
             {currencyArray.map((currency) => (
-              <MenuItem
-                key={currency}
-                value={currency}
-              >{`${currency}`}</MenuItem>
+              <MenuItem value={currency}>{`${currency}`}</MenuItem>
             ))}
           </Select>
 
@@ -68,8 +64,6 @@ export const PointsPerPurchase = () => {
             type="number"
             onChange={(e) => setPrice(e.target.value)}
           />
-
-          <Button onClick={sendPointsPerPurchaseToStore}>Done</Button>
         </FormGroup>
       </div>
     </>

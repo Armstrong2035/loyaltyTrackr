@@ -34,9 +34,9 @@ export const PointsPerPurchase = () => {
     setPointsPerPurchase(pointsPerPurchase);
   };
 
-  // useEffect(() => {
-  //   console.log(pointsPerPurchase);
-  // }, [pointsPerPurchase]);
+  useEffect(() => {
+    console.log(pointsPerPurchase);
+  }, [pointsPerPurchase]);
 
   return (
     <>
@@ -53,10 +53,7 @@ export const PointsPerPurchase = () => {
             onChange={(e) => setCurrency(e.target.value)}
           >
             {currencyArray.map((currency) => (
-              <MenuItem
-                key={currency}
-                value={currency}
-              >{`${currency}`}</MenuItem>
+              <MenuItem value={currency}>{`${currency}`}</MenuItem>
             ))}
           </Select>
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   Button,
   FormGroup,
@@ -48,9 +48,7 @@ export const BusinessDetails = () => {
     setBusinessDetails(details);
   };
 
-  // useEffect(() => {
-  //   console.log(businessDetails);
-  // }, [businessDetails]);
+  console.log(businessDetails);
 
   return (
     <div>
@@ -71,7 +69,7 @@ export const BusinessDetails = () => {
           onChange={handleIndustryChange}
         >
           {industryList.map((industry, i) => (
-            <MenuItem key={industry} value={industry}>{`${industry}`}</MenuItem>
+            <MenuItem value={industry}>{`${industry}`}</MenuItem>
           ))}
         </Select>
 

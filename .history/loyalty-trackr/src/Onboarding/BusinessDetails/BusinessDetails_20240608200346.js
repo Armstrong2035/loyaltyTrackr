@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   Button,
   FormGroup,
@@ -25,10 +25,9 @@ export const BusinessDetails = () => {
   const [name, setName] = useState("");
   const [industry, setIndustry] = useState("");
 
-  const setBusinessDetails = onBoardingStore(
-    (state) => state.setBusinessDetails
+  const { businessDetails, updateBusinessDetails } = onBoardingStore(
+    (state) => state.updateBusinessDetails
   );
-  const businessDetails = onBoardingStore((state) => state.businessDetails);
 
   const handleNameChange = (e) => {
     const name = e.target.value;
@@ -45,13 +44,8 @@ export const BusinessDetails = () => {
       businessName: name,
       businessCategory: industry,
     };
-    setBusinessDetails(details);
+    updateBusinessDetails(details);
   };
-
-  // useEffect(() => {
-  //   console.log(businessDetails);
-  // }, [businessDetails]);
-
   return (
     <div>
       <FormGroup>
@@ -71,7 +65,7 @@ export const BusinessDetails = () => {
           onChange={handleIndustryChange}
         >
           {industryList.map((industry, i) => (
-            <MenuItem key={industry} value={industry}>{`${industry}`}</MenuItem>
+            <MenuItem value={industry}>{`${industry}`}</MenuItem>
           ))}
         </Select>
 

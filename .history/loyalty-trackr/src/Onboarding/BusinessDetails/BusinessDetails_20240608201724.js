@@ -71,7 +71,7 @@ export const BusinessDetails = () => {
           onChange={handleIndustryChange}
         >
           {industryList.map((industry, i) => (
-            <MenuItem key={industry} value={industry}>{`${industry}`}</MenuItem>
+            <MenuItem value={industry}>{`${industry}`}</MenuItem>
           ))}
         </Select>
 

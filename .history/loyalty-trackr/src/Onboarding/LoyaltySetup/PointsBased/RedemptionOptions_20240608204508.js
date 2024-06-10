@@ -7,7 +7,7 @@ export const RedemptionOption = () => {
   const [reward, setReward] = useState("");
 
   const setRedemptionOptions = onBoardingStore(
-    (state) => state.setRedemptionOptions
+    (state) => state.redemptionOptions
   );
 
   const redemptionOptions = onBoardingStore((state) => state.redemptionOptions);
@@ -30,12 +30,10 @@ export const RedemptionOption = () => {
       reward: reward,
     };
 
-    setRedemptionOptions(redemptionOptionInstance);
+    setRedemptionOptions((prev) => [...prev, redemptionOptionInstance]);
   };
 
-  // useEffect(() => {
-  //   console.log(redemptionOptions);
-  // }, [redemptionOptions]);
+  useEffect(() => console.log(redemptionOptions));
 
   return (
     <div>

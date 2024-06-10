@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   Button,
   FormGroup,
@@ -24,11 +24,11 @@ const industryList = [
 export const BusinessDetails = () => {
   const [name, setName] = useState("");
   const [industry, setIndustry] = useState("");
+  const [businessDetails, setBusinessDetails] = useState({});
 
-  const setBusinessDetails = onBoardingStore(
-    (state) => state.setBusinessDetails
+  const updateBusinessDetails = useOnBoardingStore(
+    (state) => state.updateBusinessDetails
   );
-  const businessDetails = onBoardingStore((state) => state.businessDetails);
 
   const handleNameChange = (e) => {
     const name = e.target.value;
@@ -40,17 +40,13 @@ export const BusinessDetails = () => {
     setIndustry(industry);
   };
 
-  const sendToStore = () => {
+  useEffect(() => {
     const details = {
       businessName: name,
       businessCategory: industry,
     };
-    setBusinessDetails(details);
-  };
-
-  // useEffect(() => {
-  //   console.log(businessDetails);
-  // }, [businessDetails]);
+    updateBusinessDetails(details);
+  }, [name, industry, updateBusinessDetails]);
 
   return (
     <div>
@@ -70,13 +66,13 @@ export const BusinessDetails = () => {
           label="Industry"
           onChange={handleIndustryChange}
         >
-          {industryList.map((industry, i) => (
-            <MenuItem key={industry} value={industry}>{`${industry}`}</MenuItem>
+          {industryList.map((industry) => (
+            <MenuItem value={industry}>{`${industry}`}</MenuItem>
           ))}
         </Select>
-
-        <Button onClick={sendToStore}>Submit</Button>
       </FormGroup>
+
+      <Button>Next</Button>
     </div>
   );
 };

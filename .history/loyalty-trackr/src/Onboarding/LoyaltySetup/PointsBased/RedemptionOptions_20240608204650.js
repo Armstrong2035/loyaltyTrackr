@@ -30,12 +30,10 @@ export const RedemptionOption = () => {
       reward: reward,
     };
 
-    setRedemptionOptions(redemptionOptionInstance);
+    setRedemptionOptions((prev) => [...prev, redemptionOptionInstance]);
   };
 
-  // useEffect(() => {
-  //   console.log(redemptionOptions);
-  // }, [redemptionOptions]);
+  useEffect(() => console.log(redemptionOptions));
 
   return (
     <div>

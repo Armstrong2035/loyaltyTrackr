@@ -48,9 +48,9 @@ export const BusinessDetails = () => {
     setBusinessDetails(details);
   };
 
-  // useEffect(() => {
-  //   console.log(businessDetails);
-  // }, [businessDetails]);
+  useEffect(() => {
+    console.log(businessDetails);
+  }, [businessDetails]);
 
   return (
     <div>
@@ -71,7 +71,7 @@ export const BusinessDetails = () => {
           onChange={handleIndustryChange}
         >
           {industryList.map((industry, i) => (
-            <MenuItem key={industry} value={industry}>{`${industry}`}</MenuItem>
+            <MenuItem value={industry}>{`${industry}`}</MenuItem>
           ))}
         </Select>
 

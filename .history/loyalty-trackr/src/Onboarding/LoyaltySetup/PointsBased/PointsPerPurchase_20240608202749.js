@@ -34,9 +34,9 @@ export const PointsPerPurchase = () => {
     setPointsPerPurchase(pointsPerPurchase);
   };
 
-  // useEffect(() => {
-  //   console.log(pointsPerPurchase);
-  // }, [pointsPerPurchase]);
+  useEffect(() => {
+    console.log(pointsPerPurchase);
+  }, [pointsPerPurchase]);
 
   return (
     <>

@@ -1,5 +1,5 @@
 import { FormGroup, TextField, Button } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { onBoardingStore } from "../../Store/Store";
 
 export const Conditions = () => {
@@ -7,7 +7,6 @@ export const Conditions = () => {
   let [maximumPointsPerPurchase, setMaximumPointsPerPurchase] = useState(10000);
 
   const setConditions = onBoardingStore((state) => state.setConditions);
-  const conditions = onBoardingStore((state) => state.conditions);
 
   const increaseMaximumPoints = () => {
     setMaximumPointsPerPurchase(() => (maximumPointsPerPurchase += 100));
@@ -26,9 +25,7 @@ export const Conditions = () => {
     setConditions(conditions);
   };
 
-  useEffect(() => {
-    console.log(conditions);
-  }, [conditions]);
+  console.log(conditions);
 
   return (
     <div>

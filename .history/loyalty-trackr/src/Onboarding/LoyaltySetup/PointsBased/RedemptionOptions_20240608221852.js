@@ -33,9 +33,9 @@ export const RedemptionOption = () => {
     setRedemptionOptions(redemptionOptionInstance);
   };
 
-  // useEffect(() => {
-  //   console.log(redemptionOptions);
-  // }, [redemptionOptions]);
+  useEffect(() => {
+    console.log(redemptionOptions);
+  }, [redemptionOptions]);
 
   return (
     <div>
