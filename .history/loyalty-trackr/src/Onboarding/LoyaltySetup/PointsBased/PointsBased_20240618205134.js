@@ -36,8 +36,8 @@
 //   });
 
 //   return (
-<>
-  {/* <h2>Points-Based Loyalty Program Setup</h2>
+    <>
+      {/* <h2>Points-Based Loyalty Program Setup</h2>
 
       <p>
         Example: If you set the price per 10,000 points to $100, a customer who
@@ -49,7 +49,7 @@
         10,000 points is the default. You can edit it later in your dashboard.
       </p> */}
 
-  {/* <h3>How can your customers earn points</h3>
+      {/* <h3>How can your customers earn points</h3>
       <PointsPerPurchase />
 
       <h3>How will your customers redeem their points</h3>
@@ -57,6 +57,6 @@
 
       <h3>What are the terms and conditions?</h3>
       <Conditions /> */}
-</>;
-//   );
-// };
+    </>
+  );
+};
