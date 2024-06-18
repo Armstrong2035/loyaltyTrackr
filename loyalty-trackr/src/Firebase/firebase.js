@@ -16,3 +16,15 @@ export const firebaseApp = initializeApp(firebaseConfig);
 export const db = getFirestore(firebaseApp);
 
 // auth.js
+const auth = getAuth();
+
+let userId = "";
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    const uid = user.uid;
+    userId = uid;
+  } else {
+  }
+});
+
+export { auth, userId };
